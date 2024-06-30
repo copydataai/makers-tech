@@ -8,5 +8,6 @@ export default {
   dbCredentials: {
     url: env.DATABASE_URL,
   },
-  tablesFilter: ["makers-tech_*"],
+  out: "./drizzle",
+  tablesFilter: ["makers_*"],
 } satisfies Config;
