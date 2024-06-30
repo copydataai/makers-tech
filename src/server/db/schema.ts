@@ -19,7 +19,21 @@ import { type AdapterAccount } from "next-auth/adapters";
  *
  * @see https://orm.drizzle.team/docs/goodies#multi-project-schema
  */
-export const createTable = pgTableCreator((name) => `makers-tech_${name}`);
+export const createTable = pgTableCreator((name) => `makers_${name}`);
+
+export const ecommerceProducts = createTable("ecommerce_products", {
+  productID: integer("product_id").primaryKey(),
+  productName: varchar("product_name", { length: 255 }).notNull(),
+  productImage: text("product_image"),
+  productLink: text("product_link").notNull(),
+  productRatings: varchar("product_ratings", { length: 100 }),
+  ratingCount: varchar("rating_count", { length: 100 }),
+  productDescription: text("product_description"),
+  fetchDate: date("fetch_date").notNull(),
+  productPrice: text("product_price").notNull(),
+  productCategory: varchar("product_category", { length: 100 }),
+  productStore: varchar("product_store", { length: 100 }).notNull(),
+});
 
 export const users = createTable("user", {
   id: varchar("id", { length: 255 })
