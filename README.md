@@ -11,10 +11,7 @@
 - Ollama
  
 ## Pitch
-> Enabling an agent chat to check products without need to develop a complex platform like Amazon, Shopify, Etsy, etc. 
-> Just using a simple chat as customer service to provide a real-time inventory and provide links to do payments.
-- reducing the time to develop a basic MVP of the ecommerce and focusing on the products and optimize the transactions, delegating the billing to other platforms like stripe, lemonsqueazy, etc.
-- fast MVP to get an informative conduct about the 
+> Enable efficient e-commerce without the complexity of platforms like Amazon or Shopify. Our chat-based solution offers real-time inventory checks and payment links through simple customer service interactions. Save development time by quickly creating a basic MVP, focusing on product optimization and seamless transactions. Delegate billing to trusted platforms like Stripe or LemonSqueezy, allowing you to concentrate on your core business. Solving the problem to a big variety of products to search and find the ideal product just by chat not overwhelming using complex webs or exploiting your attention.
 
 
 ## Schemas & SQL
@@ -53,7 +50,6 @@ CREATE TABLE ecommerce_products (
  product_price       | text                   |           | not null |
  product_category    | character varying(100) |           |          |
  product_store       | character varying(100) |           | not null |
- date                | character varying(50)  |           |          |
 Indexes:
     "makers_ecommerce_products_pkey" PRIMARY KEY, btree (product_id)
 ```
