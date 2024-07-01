@@ -14,6 +14,10 @@ import { ZodError } from "zod";
 import { getServerAuthSession } from "~/server/auth";
 import { db } from "~/server/db";
 
+import { Ollama } from "@langchain/community/llms/ollama";
+const MODEL_OLLAMA = "gemma2:9b";
+const MODEL_OLLAMA_ENDPOINT = "http://localhost:11434";
+
 /**
  * 1. CONTEXT
  *
@@ -29,9 +33,15 @@ import { db } from "~/server/db";
 export const createTRPCContext = async (opts: { headers: Headers }) => {
   const session = await getServerAuthSession();
 
+  const ollama = new Ollama({
+    baseUrl: MODEL_OLLAMA_ENDPOINT,
+    model: MODEL_OLLAMA,
+  });
+
   return {
     db,
     session,
+    ollama,
     ...opts,
   };
 };
@@ -102,7 +112,7 @@ export const protectedProcedure = t.procedure.use(({ ctx, next }) => {
   return next({
     ctx: {
       // infers the `session` as non-nullable
-      session: { ...ctx.session, user: ctx.session.user },
+      session: { ...ctx.session, user: ctx.session.user, ...ctx.ollama },
     },
   });
 });
