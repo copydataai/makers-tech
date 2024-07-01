@@ -13,6 +13,7 @@ import { ZodError } from "zod";
 
 import { getServerAuthSession } from "~/server/auth";
 import { db } from "~/server/db";
+import { TrainingOllama } from "~/server/ollama";
 
 import { Ollama } from "@langchain/community/llms/ollama";
 const MODEL_OLLAMA = "gemma2:9b";
@@ -33,11 +34,11 @@ const MODEL_OLLAMA_ENDPOINT = "http://localhost:11434";
 export const createTRPCContext = async (opts: { headers: Headers }) => {
   const session = await getServerAuthSession();
 
+  // const ollama = await TrainingOllama();
   const ollama = new Ollama({
-    baseUrl: MODEL_OLLAMA_ENDPOINT,
     model: MODEL_OLLAMA,
+    baseUrl: MODEL_OLLAMA_ENDPOINT,
   });
-
   return {
     db,
     session,
