@@ -6,14 +6,12 @@ import { Bot } from "lucide-react";
 
 export function SystemCard(props: { message: string; setIsTyping: any }) {
   const { message, setIsTyping } = props;
-  console.log(message);
   const { isLoading, isError, error, data } =
     api.product.questionPrompt.useQuery({ prompt: message });
 
   if (isLoading) {
     return <Spinner color="primary" size="sm" />;
   }
-  console.log(data);
 
   setIsTyping(false);
 
