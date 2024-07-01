@@ -23,7 +23,7 @@ export async function NavBar() {
       </NavbarBrand>
       <NavbarContent justify="end">
         <NavbarItem className="hidden lg:flex">
-          <Button as={Link} color="primary" href="#" variant="flat" asChild>
+          <Button as={Link} color="primary" href="#" variant="flat" children>
             <Link href={session ? "/api/auth/signout" : "/api/auth/signin"}>
               {session ? "Sign out" : "Sign in"}
             </Link>
