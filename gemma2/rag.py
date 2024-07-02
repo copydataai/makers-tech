@@ -16,7 +16,7 @@ OLLAMA_MODEL = "gemma2:9b"
 def load_csv():
     file_path = "./Dataset200.csv"
 
-    ollama = ChatOllama(model=OLLAMA_MODEL, max_tokens_limit=1024)
+    ollama = ChatOllama(model=OLLAMA_MODEL)
 
     loader = CSVLoader(file_path=file_path)
     data = loader.load()
