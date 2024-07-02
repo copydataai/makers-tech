@@ -9,6 +9,9 @@
 - LangChain
 - Gemma2
 - Ollama
+
+## Dataset
+[e-commerce-tech-dataset](https://www.kaggle.com/datasets/hassanali699/e-commerce-tech-dataset?resource=download)
  
 ## Pitch
 > Enable efficient e-commerce without the complexity of platforms like Amazon or Shopify. Our chat-based solution offers real-time inventory checks and payment links through simple customer service interactions. Save development time by quickly creating a basic MVP, focusing on product optimization and seamless transactions. Delegate billing to trusted platforms like Stripe or LemonSqueezy, allowing you to concentrate on your core business. Solving the problem to a big variety of products to search and find the ideal product just by chat not overwhelming using complex webs or exploiting your attention.
@@ -53,18 +56,3 @@ CREATE TABLE ecommerce_products (
 Indexes:
     "makers_ecommerce_products_pkey" PRIMARY KEY, btree (product_id)
 ```
-
-
-export const ecommerceProducts = createTable("ecommerce_products", {
-  productID: integer("product_id").primaryKey(),
-  productName: varchar("product_name", { length: 255 }).notNull(),
-  productImage: text("product_image"),
-  productLink: text("product_link").notNull(),
-  productRatings: varchar("product_ratings", { length: 100 }),
-  ratingCount: varchar("rating_count", { length: 100 }),
-  productDescription: text("product_description"),
-  fetchDate: date("fetch_date").notNull(),
-  productPrice: text("product_price").notNull(),
-  productCategory: varchar("product_category", { length: 100 }),
-  productStore: varchar("product_store", { length: 100 }).notNull(),
-});
