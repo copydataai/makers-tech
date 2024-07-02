@@ -47,6 +47,7 @@ export async function TrainingOllama() {
 
     Question: <Question here>
     SQLQuery: <SQL Query to run>
+    product_id: <Product id>
     SQLResult: <Result of the SQLQuery>
     Answer: <Final answer here>
 
